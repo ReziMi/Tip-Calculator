@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./images/favicon-32x32.png">
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <img src="./images/logo.svg" alt="splitter-logo" class="logo">
+
+    <div class="container">
+        <div class="calculations">
+            <h2 class="bill">Bill</h2>
+            <input type="text" class="bill-input" placeholder="0" style="background-image: url('./images/icon-dollar.svg'); background-repeat: no-repeat; background-position: 19.26px center; padding-right: 17.48px;">
+              
+            <h2 class="select-percentage">Select Tip %</h2>
+            <div class="button-grid">
+                <button class="tip-button">5%</button>
+                <button class="tip-button">10%</button>
+                <button class="tip-button">15%</button>
+                <button class="tip-button">25%</button>
+                <button class="tip-button">50%</button>
+                <input type="number" class="custom-tip-input" placeholder="Custom">
+            </div>
+
+            <div class="people-error">
+                <h2 class="numOfPeople">Number of People</h2>
+                <h2 class="error-message">Can't be zero</h2>
+            </div>
+            <input type="text" class="people-input" placeholder="0" style="background-image: url('./images/icon-person.svg'); background-repeat: no-repeat; background-position: 19.26px center; padding-right: 17.48px;">
+        </div>
+
+        <div class="results">
+           <div class="tipAmount-container">
+                <div class="tipAmount">
+                    <h2 class="tip">Tip Amount</h2>
+                    <h3 class="tip-person">/ person</h3>
+                </div>
+                <h2 class="tipNum">$0.00</h2>
+           </div>
+
+           <div class="total-container">
+                <div class="total-amount">
+                    <h2 class="total">Total</h2>
+                    <h3 class="total-person">/ person</h3>  
+                </div>
+                <h2 class="personNum">$0.00</h2>
+           </div>
+
+           <button class="reset-button">Reset</button>
+              
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
