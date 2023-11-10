@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // ამ ფუნქციით ვითვლით თიფს და მთლიან გადასახადს
   function updateAmounts() {
     // ვიღებთ გადასახადის ოდენობას. თუ არაა ვალიდური რიცხვი, იწერება 0
-    const billAmount = parseFloat(billInput.value) || 0;
+    const billAmount = parseFloat(billInput.value);
     // ვიღებთ ხალხის რაოდენობას. თუ ვალიდური რიცხვი არაა, იწერება 0
-    const numberOfPeople = parseInt(peopleInput.value) || 1;
+    const numberOfPeople = parseInt(peopleInput.value);
     let selectedTipPercentage = 0;
 
     // თიფის ყველა ღილაკს აქვს საწყისი სტილი
@@ -58,10 +58,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const tipPerPerson = (billAmount * (selectedTipPercentage / 100)) / numberOfPeople;
     const totalPerPerson = (billAmount / numberOfPeople) + tipPerPerson;
 
-    // აქ ვაჩვენებთ გამოვლების შედეგებს, მეასედების ჩვენებით
-    tipNum.textContent = `$${tipPerPerson.toFixed(2)}`;
-    personNum.textContent = `$${totalPerPerson.toFixed(2)}`;
-  }
+
+    if (Number.isNaN(tipPerPerson)) {
+      tipNum.textContent = '$00.00';
+      personNum.textContent='$00.00';
+    } else {
+      tipNum.textContent = `${tipPerPerson.toFixed(2)}`;
+      personNum.textContent = `$${totalPerPerson.toFixed(2)}`;
+    }
+
+
 
   function handleTipButtonClick(event) {
     // ყველა ღილაკს ვაცილებთ აქტიურ კლასს
